@@ -3,7 +3,7 @@ describe('Controller: GalleryCtrl', function () {
   // load the controller's module
   beforeEach(module('giphyGalleryApp'));
 
-  var InstagramCtrl,
+  var GalleryCtrl,
       scope,
       $httpBackend;
 
@@ -13,16 +13,14 @@ describe('Controller: GalleryCtrl', function () {
     $httpBackend.whenGET('http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC&rating=g')
       .respond([{'some': 'test data'}]);
 
-    scope = $rootScope.$new();
-    InstagramCtrl = $controller('GalleryCtrl', {
-      $scope: scope
+    GalleryCtrl = $controller('GalleryCtrl', {
     });
   }));
 
   it('should attach a list of things to the scope', function () {
     $httpBackend.flush();
-    expect(scope.data.length).toBe(1);
-    expect(scope.data[0].some).toBe('test data');
+    expect(GalleryCtrl.data.length).toBe(1);
+    expect(GalleryCtrl.data[0].some).toBe('test data');
   });
 
   // TODO:
