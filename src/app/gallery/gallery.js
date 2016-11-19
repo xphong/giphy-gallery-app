@@ -3,7 +3,13 @@ angular.module('giphyGalleryApp')
     $stateProvider
       .state('gallery', {
         url: '/gallery',
-        templateUrl: 'app/gallery/gallery.html',
+        templateUrl: 'gallery/gallery.html',
+        views: {
+            "main": {
+                controller: 'GalleryCtrl as vm',
+                templateUrl: 'gallery/gallery.tpl.html'
+            }
+        },
         controller: 'GalleryCtrl'
       });
   });

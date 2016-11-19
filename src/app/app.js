@@ -1,7 +1,7 @@
 (function(app) {
 
     app.config(function ($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise('/home');
+        $urlRouterProvider.otherwise('/gallery');
     });
 
     app.run(function () {});
@@ -11,8 +11,6 @@
     });
 
 }(angular.module("giphyGalleryApp", [
-    'giphyGalleryApp.home',
-    'giphyGalleryApp.about',
     'templates-app',
     'templates-common',
     'ui.router.state',
