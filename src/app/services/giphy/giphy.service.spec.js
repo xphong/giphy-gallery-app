@@ -26,9 +26,9 @@ describe('Service: GiphyService', function () {
     'import_datetime': '2016-11-19 16:34:04',
     'trending_datetime': '2016-11-19 16:39:32',
     'images': {
-      'downsized': {
+      'fixed_width': {
         'url': 'http:\/\/media0.giphy.com\/media\/3o6Ztb8DOw7q6VNYw8\/giphy-tumblr.gif',
-        'width': '250',
+        'width': '200',
         'height': '186',
         'size': '1325251'
       }
