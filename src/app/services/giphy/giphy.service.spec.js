@@ -81,7 +81,7 @@ describe('Service: GiphyService', function () {
 
     GiphyService.getGiphyData()
       .catch(function (error) {
-        expect(error.status).toEqual(404);        
+        expect(error.status).toBe(404);        
         expect(error.data).toEqual(giphyService404Error);
       });
 
@@ -94,7 +94,7 @@ describe('Service: GiphyService', function () {
 
     GiphyService.getGiphyData()
       .catch(function (error) {
-        expect(error.status).toEqual(403);
+        expect(error.status).toBe(403);
         expect(error.data).toEqual(giphyService403Error);
       });
 
