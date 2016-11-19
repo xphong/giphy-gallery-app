@@ -28,6 +28,6 @@ npm install
 * Run the server via terminal:
 `grunt watch`
 * Run the e2e tests:
-`gulp e2e`
+`grunt teste2e`
 * For unit tests:
-`npm test`
+`grunt test`
