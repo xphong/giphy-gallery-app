@@ -10,13 +10,7 @@
     function GalleryCtrl (GiphyService) {
       var vm = this;
 
-      GiphyService.getGiphyData()
-        .then(function(response) {
-
-          vm.data = response.data.data;
-          console.log('RESPONSE:', response.data.data );
-
-        });
+      init();
 
       vm.likePhoto = function () {
         // TODO:
@@ -27,6 +21,16 @@
         // You'll also want to ideally create a test for each function you create
         // and test that the scope variable is correct for each or is as expected
       };
+
+      function init () {
+        GiphyService.getGiphyData()
+          .then(setGalleryData);
+      }
+
+      function setGalleryData(response) {
+        vm.data = response.data;
+        console.log('RESPONSE:', response.data );
+      }
     }
 
 })(angular);
