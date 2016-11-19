@@ -44,8 +44,8 @@ describe('Controller: GalleryCtrl', function () {
       .respond(200, giphyServiceData);
     $httpBackend.flush();
 
-    expect(GalleryCtrl.data.length).toEqual(1);
-    expect(GalleryCtrl.data[0].id).toEqual('3o6Ztb8DOw7q6VNYw8');
+    expect(GalleryCtrl.data.length).toBe(1);
+    expect(GalleryCtrl.data[0].id).toBe('3o6Ztb8DOw7q6VNYw8');
   });
 
   it('should display error message if giphy data fails to load', function () {
@@ -53,12 +53,12 @@ describe('Controller: GalleryCtrl', function () {
       .respond(404);
     $httpBackend.flush();
 
-    expect(GalleryCtrl.data.length).toEqual(0);
-    expect(GalleryCtrl.errorMessage).toEqual('Error loading data');
+    expect(GalleryCtrl.data.length).toBe(0);
+    expect(GalleryCtrl.errorMessage).toBe('Error loading data');
   });
 
   it('should display current date', function () {
-    expect(GalleryCtrl.currentDate).toEqual('2016/11/19');
+    expect(GalleryCtrl.currentDate).toBe('2016/11/19');
   });
 
   // TODO:
