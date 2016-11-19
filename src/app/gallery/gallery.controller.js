@@ -11,6 +11,7 @@
       var vm = this;
       vm.data = [];
       vm.errorMessage = '';
+      vm.currentDate = getCurrentDate();
 
       init();
 
@@ -39,6 +40,15 @@
       function handleGalleryDataError(error) {
         // Hard coded because of CORS
         vm.errorMessage = 'Error loading data';
+      }
+
+      function getCurrentDate() {
+        var dateObj = new Date();
+        var month = dateObj.getUTCMonth() + 1;
+        var day = dateObj.getUTCDate();
+        var year = dateObj.getUTCFullYear();
+
+        return year + "/" + month + "/" + day;
       }
     }
 

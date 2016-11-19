@@ -1,7 +1,7 @@
 <div class="container gallery">
   <div class="row">
     <div class="col-xs-12">
-      <h1>Trending Giphy Gallery</h1>
+      <h1>Trending Giphy Gallery - {{vm.currentDate}}</h1>
       <div ng-if="vm.data" class="gallery__images">
         <div class="img-thumbnail" ng-repeat="data in vm.data.data">
           <img  ng-src="{{data.images.fixed_width.url}}">
