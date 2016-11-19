@@ -4,7 +4,9 @@ describe('Service: GiphyService', function () {
 
   var GiphyService,
       $httpBackend,
-      giphyServiceData;
+      giphyServiceData,
+      giphyService404Error,
+      giphyService403Error;
 
   giphyServiceData = [{
     'type': 'gif',
@@ -33,6 +35,24 @@ describe('Service: GiphyService', function () {
      }
    }];
 
+   giphyService404Error = {
+     'data': [],
+     'meta': {
+       'status': 404,
+       'msg': 'Not Found',
+       'response_id': '5830beae2d12a1baffbcbb1c'
+     }
+   };
+
+   giphyService403Error = {
+     'data': [],
+     'meta': {
+       'status': 403,
+       'msg': 'Forbidden - missing key',
+       'response_id': '5830bf1d8a4e2857cafb5fc1'
+     }
+   };
+
   beforeEach(inject(function(_$httpBackend_, _GiphyService_) {
     $httpBackend = _$httpBackend_;
     GiphyService = _GiphyService_;
@@ -49,10 +69,37 @@ describe('Service: GiphyService', function () {
 
     GiphyService.getGiphyData()
       .then(function (response) {
-          expect(response.data).toEqual(giphyServiceData);
+        expect(response.data).toEqual(giphyServiceData);
       });
 
     $httpBackend.flush();
   });
+
+  it('should retrieve 404 error for giphy service', function () {
+    $httpBackend.whenGET('http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC&rating=g')
+      .respond(404, giphyService404Error);
+
+    GiphyService.getGiphyData()
+      .catch(function (error) {
+        expect(error.status).toEqual(404);        
+        expect(error.data).toEqual(giphyService404Error);
+      });
+
+    $httpBackend.flush();
+  });
+
+  it('should retrieve 403 error for giphy service', function () {
+    $httpBackend.whenGET('http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC&rating=g')
+      .respond(403, giphyService403Error);
+
+    GiphyService.getGiphyData()
+      .catch(function (error) {
+        expect(error.status).toEqual(403);
+        expect(error.data).toEqual(giphyService403Error);
+      });
+
+    $httpBackend.flush();
+  });
+
 
 });
