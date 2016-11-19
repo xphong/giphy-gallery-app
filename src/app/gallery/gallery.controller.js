@@ -5,19 +5,18 @@
       .module('giphyGalleryApp')
       .controller('GalleryCtrl', GalleryCtrl);
 
-    GalleryCtrl.$inject = ['$http'];
+    GalleryCtrl.$inject = ['GiphyService'];
 
-    function GalleryCtrl ($http) {
+    function GalleryCtrl (GiphyService) {
       var vm = this;
-      var url = 'http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC&rating=g';
 
-      $http.get( url )
-      .success(function( response ) {
+      GiphyService.getGiphyData()
+        .then(function(response) {
 
-        vm.data = response;
-        console.log('RESPONSE:', response );
+          vm.data = response.data;
+          console.log('RESPONSE:', response.data );
 
-      });
+        });
 
       vm.likePhoto = function () {
         // TODO:
