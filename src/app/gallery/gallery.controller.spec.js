@@ -35,16 +35,26 @@ describe('Controller: GalleryCtrl', function () {
 
   beforeEach(inject(function (_$httpBackend_, $controller, $rootScope) {
     $httpBackend = _$httpBackend_;
-    $httpBackend.whenGET('http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC&rating=g')
-      .respond(giphyServiceData);
 
     GalleryCtrl = $controller('GalleryCtrl', {});
   }));
 
-  it('should attach a list of things to the scope', function () {
+  it('should get giphy data and attach the data to the scope', function () {
+    $httpBackend.whenGET('http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC&rating=g')
+      .respond(200, giphyServiceData);
     $httpBackend.flush();
+
     expect(GalleryCtrl.data.length).toBe(1);
     expect(GalleryCtrl.data[0].id).toBe('3o6Ztb8DOw7q6VNYw8');
+  });
+
+  it('should display error message if giphy data fails to load', function () {
+    $httpBackend.whenGET('http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC&rating=g')
+      .respond(404);
+    $httpBackend.flush();
+
+    expect(GalleryCtrl.data.length).toBe(0);
+    expect(GalleryCtrl.errorMessage).toBe('Error loading data');
   });
 
   // TODO:

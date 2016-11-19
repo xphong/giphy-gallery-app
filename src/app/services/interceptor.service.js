@@ -5,18 +5,19 @@
       .module('giphyGalleryApp')
       .factory('InterceptorService', InterceptorService);
 
-    InterceptorService.$inject = ['$log'];
+    InterceptorService.$inject = ['$log', '$q'];
 
-    function InterceptorService ($log) {
+    function InterceptorService ($log, $q) {
         var service = {
-            requestError: logError,
-            responseError: logError
+          requestError: logError,
+          responseError: logError
         };
 
         return service;
 
         function logError (error) {
             $log.error(error);
+            return $q.reject(error);
         }
     }
 
