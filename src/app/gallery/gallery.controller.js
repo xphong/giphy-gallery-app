@@ -13,8 +13,8 @@
       GiphyService.getGiphyData()
         .then(function(response) {
 
-          vm.data = response.data;
-          console.log('RESPONSE:', response.data );
+          vm.data = response.data.data;
+          console.log('RESPONSE:', response.data.data );
 
         });
 
