@@ -9,6 +9,8 @@
 
     function GalleryCtrl (GiphyService) {
       var vm = this;
+      vm.data = [];
+      vm.errorMessage = '';
 
       init();
 
@@ -24,12 +26,19 @@
 
       function init () {
         GiphyService.getGiphyData()
-          .then(setGalleryData);
+          .then(setGalleryData, handleGalleryDataError);
       }
 
       function setGalleryData(response) {
-        vm.data = response.data;
-        console.log('RESPONSE:', response.data );
+        if (response) {
+          vm.data = response.data;
+          console.log('RESPONSE:', response.data );
+        }
+      }
+
+      function handleGalleryDataError(error) {
+        // Hard coded because of CORS
+        vm.errorMessage = 'Error loading data';
       }
     }
 
