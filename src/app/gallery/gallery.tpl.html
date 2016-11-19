@@ -2,8 +2,15 @@
   <div class="row">
     <div class="col-xs-12">
       <h1>Trending Giphy Gallery</h1>
-      <div ng-if="vm.data.length" class="gallery__images">
-        <img class="img-thumbnail" ng-repeat="data in vm.data.data" ng-src="{{data.images.fixed_width.url}}">
+      <div ng-if="vm.data" class="gallery__images">
+        <div class="img-thumbnail" ng-repeat="data in vm.data.data">
+          <img  ng-src="{{data.images.fixed_width.url}}">
+          <div class="gallery__images__likes">
+            <button class="gallery__images__likes__btn btn btn-default">
+              &#x2764;
+            </button>
+          </div>
+        </div>
       </div>
       <div ng-if="vm.errorMessage" class="alert alert-danger"> 
         {{vm.errorMessage}}
