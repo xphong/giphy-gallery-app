@@ -3,7 +3,7 @@
     <div class="col-xs-12">
       <h1>Trending Giphy Gallery</h1>
       <div class="gallery__images">
-        <img class="img-thumbnail" ng-repeat="data in vm.data" ng-src="{{data.images.fixed_width.url}}">
+        <img class="img-thumbnail" ng-repeat="data in vm.data.data" ng-src="{{data.images.fixed_width.url}}">
       </div>
     </div>
   </div>
