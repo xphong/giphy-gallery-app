@@ -34,13 +34,13 @@ describe('Service: GiphyService', function () {
    }];
 
   beforeEach(inject(function(_$httpBackend_, _GiphyService_) {
-      $httpBackend = _$httpBackend_;
-      GiphyService = _GiphyService_;
+    $httpBackend = _$httpBackend_;
+    GiphyService = _GiphyService_;
   }));
 
   afterEach(function() {
-      $httpBackend.verifyNoOutstandingExpectation();
-      $httpBackend.verifyNoOutstandingRequest();
+    $httpBackend.verifyNoOutstandingExpectation();
+    $httpBackend.verifyNoOutstandingRequest();
   });
 
   it('should retrieve correct data for giphy service', function () {
