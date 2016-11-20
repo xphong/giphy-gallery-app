@@ -12,10 +12,9 @@
       vm.data = {};
       vm.errorMessage = '';
       vm.currentDate = getCurrentDate();
+      vm.likeGiphy = likeGiphy;
 
       init();
-
-      vm.likeGiphy = likeGiphy;
 
       function init () {
         GiphyService.getGiphyData()
