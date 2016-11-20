@@ -1,5 +1,7 @@
 # Giphy gallery app
 
+[![Build Status](https://travis-ci.org/xphong/giphy-gallery-app.svg?branch=master)](https://travis-ci.org/xphong/giphy-gallery-app)
+
 A simplified version of the ngBoilerplate angular project template.
 [https://github.com/ngbp/ngbp](https://github.com/ngbp/ngbp)
 
@@ -49,11 +51,12 @@ npm install
 * Like all button
 * Unit tests
 * E2E tests (in `feature/e2e branch`)
+* Travis CI
 
 ## Style
 
-* [John Papa Angular 1 Style Guide](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md)
-* [BEM Naming](http://getbem.com/naming/)
+* JavaScript: [John Papa Angular 1 Style Guide](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md)
+* CSS: [BEM Naming](http://getbem.com/naming/)
 
 ## Technologies
 
