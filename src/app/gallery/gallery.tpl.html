@@ -4,8 +4,15 @@
       <div class="jumbotron">
         <h2>Trending Giphy Gallery - {{vm.currentDate}}</h2>
       </div>
-      <div ng-if="vm.data" class="gallery__images">
-        <gg-card class="img-thumbnail" ng-repeat="data in vm.data.data" data="data"></gg-card>
+      <div ng-if="vm.data">
+        <div class="text-center">
+          <button ng-click="vm.likeAll()" class="text-center gallery__images__likes__btn btn btn-default">
+            &#x2764; Like All <span class="badge">{{vm.data.data.length}}</span>
+          </button>
+        </div>
+        <div class="gallery__images">
+          <gg-card class="img-thumbnail" ng-repeat="data in vm.data.data" data="data"></gg-card>
+        </div>
       </div>
       <div ng-if="vm.errorMessage" class="alert alert-danger"> 
         {{vm.errorMessage}}

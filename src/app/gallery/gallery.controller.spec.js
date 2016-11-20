@@ -32,7 +32,33 @@ describe('Controller: GalleryCtrl', function () {
         'size': '1325251'
       }
      }
-   }],
+   },
+   {
+       'type': 'gif',
+       'id': '3o6Ztb8DOw7q6VNYw8',
+       'slug': 'sharon-jones-3o6Ztb8DOw7q6VNYw8',
+       'url': 'http:\/\/giphy.com\/gifs\/sharon-jones-3o6Ztb8DOw7q6VNYw8',
+       'bitly_gif_url': 'http:\/\/gph.is\/2g5dJ5e',
+       'bitly_url': 'http:\/\/gph.is\/2g5dJ5e',
+       'embed_url': 'http:\/\/giphy.com\/embed\/3o6Ztb8DOw7q6VNYw8',
+       'username': '',
+       'source': '',
+       'rating': 'g',
+       'content_url': '',
+       'source_tld': '',
+       'source_post_url': '',
+       'is_indexable': 0,
+       'import_datetime': '2016-11-19 16:34:04',
+       'trending_datetime': '2016-11-19 16:39:32',
+       'images': {
+         'fixed_width': {
+           'url': 'http:\/\/media0.giphy.com\/media\/3o6Ztb8DOw7q6VNYw8\/giphy-tumblr.gif',
+           'width': '200',
+           'height': '186',
+           'size': '1325251'
+         }
+        }
+      }],
    meta: {
      'status': 200,
      'msg': 'OK',
@@ -55,7 +81,7 @@ describe('Controller: GalleryCtrl', function () {
       .respond(200, giphyServiceData);
     $httpBackend.flush();
 
-    expect(GalleryCtrl.data.data.length).toBe(1);
+    expect(GalleryCtrl.data.data.length).toBe(2);
     expect(GalleryCtrl.data.data[0].id).toBe('3o6Ztb8DOw7q6VNYw8');
   });
 
@@ -72,6 +98,23 @@ describe('Controller: GalleryCtrl', function () {
     var currentDate = new Date();
     currentDate.setHours(0, 0, 0, 0);
     expect(new Date(GalleryCtrl.currentDate)).toEqual(currentDate);
+  });
+
+  it('should increase all like count when LikeAll function is called', function () {
+    $httpBackend.whenGET('http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC&rating=g')
+      .respond(200, giphyServiceData);
+    $httpBackend.flush();
+
+    expect(GalleryCtrl.data.data[0].likeCount).toBeUndefined();
+    expect(GalleryCtrl.data.data[1].likeCount).toBeUndefined();
+
+    GalleryCtrl.likeAll();
+    expect(GalleryCtrl.data.data[0].likeCount).toBe(1);
+    expect(GalleryCtrl.data.data[1].likeCount).toBe(1);
+
+    GalleryCtrl.likeAll();
+    expect(GalleryCtrl.data.data[0].likeCount).toBe(2);
+    expect(GalleryCtrl.data.data[1].likeCount).toBe(2);
   });
 
 });

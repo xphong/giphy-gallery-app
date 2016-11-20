@@ -13,6 +13,7 @@
       vm.data = {};
       vm.errorMessage = '';
       vm.currentDate = UtilsService.formatDate(new Date());
+      vm.likeAll = likeAll;
 
       activate();
 
@@ -30,6 +31,19 @@
       function handleGalleryDataError (error) {
         // Hard coded because of CORS
         vm.errorMessage = 'Error loading data';
+      }
+
+      function likeAll () {
+        var likedData = angular.copy(vm.data.data);
+
+        if (!!likedData.length) {
+          likedData.map(function (data) {
+            data.likeCount = data.likeCount + 1 || 1;
+            return data;
+          });
+
+          vm.data.data = likedData;
+        }
       }
     }
 
