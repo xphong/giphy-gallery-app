@@ -18,6 +18,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-ng-annotate');
     grunt.loadNpmTasks('grunt-html2js');
     grunt.loadNpmTasks('grunt-express');
+    grunt.loadNpmTasks('grunt-protractor-runner');
 
     /** ********************************************************************************* */
     /** **************************** File Config **************************************** */
@@ -489,6 +490,18 @@ module.exports = function(grunt) {
             }
         },
 
+        protractor: {
+            options: {
+                configFile: 'protractor.conf.js',
+                keepAlive: false,
+                noColor: false,
+                args: {
+                    // Arguments passed to the command
+                }
+            },
+            all: {}
+        },
+
         /**
          * And for rapid development, we have a watch set up that checks to see if
          * any of the files listed below change, and then to execute the listed
@@ -645,6 +658,7 @@ module.exports = function(grunt) {
     grunt.registerTask('default', [ 'build', 'compile' ]);
 
     grunt.registerTask('test', [ 'jshint:test', 'karmaconfig', 'karma:continuous', 'karma:unit', 'express']);
+    grunt.registerTask('teste2e', [ 'express', 'protractor']);
 
     // The 'build' task gets your app ready to run for development and testing.
     grunt.registerTask('build', [
