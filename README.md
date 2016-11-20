@@ -1,4 +1,4 @@
-# Giphy gallery app
+# Giphy gallery app - [http://phonghuynh.ca/giphy](http://phonghuynh.ca/giphy)
 
 [![Build Status](https://travis-ci.org/xphong/giphy-gallery-app.svg?branch=master)](https://travis-ci.org/xphong/giphy-gallery-app)
 
