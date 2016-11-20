@@ -1,15 +1,18 @@
 <div class="container gallery">
   <div class="row">
     <div class="col-xs-12">
-      <h1>Trending Giphy Gallery - {{vm.currentDate}}</h1>
+      <div class="jumbotron">
+        <h2>Trending Giphy Gallery - {{vm.currentDate}}</h2>
+      </div>
       <div ng-if="vm.data" class="gallery__images">
         <div class="img-thumbnail" ng-repeat="data in vm.data.data">
-          <img ng-src="{{data.images.fixed_width.url}}">
+          <a target="_blank" ng-href="{{data.bitly_url}}">
+            <img ng-src="{{data.images.fixed_width.url}}">
+          </a>
           <div class="gallery__images__likes">
             <button ng-click="vm.likeGiphy($index)" class="gallery__images__likes__btn btn btn-default">
-              &#x2764;
+              &#x2764; <span class="badge">{{data.likeCount}}</span>
             </button>
-            {{data.likeCount}}
           </div>
         </div>
       </div>
