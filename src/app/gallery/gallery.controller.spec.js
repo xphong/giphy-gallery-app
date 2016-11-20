@@ -61,6 +61,12 @@ describe('Controller: GalleryCtrl', function () {
     expect(GalleryCtrl.currentDate).toBe('2016/11/19');
   });
 
+  it('should increase like count when likePhoto function is called', function () {
+    expect(GalleryCtrl.data[0].likeCount).toBeUndefined();
+    GalleryCtrl.likePhoto(0);
+    expect(GalleryCtrl.data[0].likeCount).toBe(1);
+  });
+
   // TODO:
   // You will have to create some more tests here with how you should be interacting
   // with your scope variable as you create your functions in your
