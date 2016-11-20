@@ -14,20 +14,10 @@
     <script type="text/javascript" src="<%= file %>"></script><% }); %>
 </head>
 <body>
-    <header>
-        <nav class="container navbar-default">
-            <ul class="nav navbar-nav">
-                <li ui-sref-active="active">
-                    <a ui-sref="gallery">Gallery</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+    <div ng-include="'components/ui/nav.tpl.html'"></div>
 
     <div class="container" ui-view="main"></div>
-
-    <footer class="container">
-        (c) <%= date %> <%= author %>
-    </footer>
+    
+    <div ng-include="'components/ui/footer.tpl.html'"></div>
 </body>
 </html>
