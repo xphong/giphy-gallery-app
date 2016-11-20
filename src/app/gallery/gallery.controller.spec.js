@@ -79,8 +79,6 @@ describe('Controller: GalleryCtrl', function () {
       .respond(200, giphyServiceData);
     $httpBackend.flush();
 
-    console.log(GalleryCtrl.data);
-
     expect(GalleryCtrl.data.data[0].likeCount).toBeUndefined();
     GalleryCtrl.likeGiphy(0);
     expect(GalleryCtrl.data.data[0].likeCount).toBe(1);
