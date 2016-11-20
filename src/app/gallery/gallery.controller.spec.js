@@ -6,7 +6,8 @@ describe('Controller: GalleryCtrl', function () {
       $httpBackend,
       giphyServiceData;
 
-  giphyServiceData = [{
+  giphyServiceData = {
+    data: [{
     'type': 'gif',
     'id': '3o6Ztb8DOw7q6VNYw8',
     'slug': 'sharon-jones-3o6Ztb8DOw7q6VNYw8',
@@ -31,7 +32,17 @@ describe('Controller: GalleryCtrl', function () {
         'size': '1325251'
       }
      }
-   }];
+   }],
+   meta: {
+     'status': 200,
+     'msg': 'OK',
+     'response_id': '5830d3d914592aa7a31a1ff5'
+   },
+   pagination: {
+     'count': 25,
+     'offset': 0
+   }
+  };
 
   beforeEach(inject(function (_$httpBackend_, $controller, $rootScope) {
     $httpBackend = _$httpBackend_;
@@ -44,8 +55,8 @@ describe('Controller: GalleryCtrl', function () {
       .respond(200, giphyServiceData);
     $httpBackend.flush();
 
-    expect(GalleryCtrl.data.length).toBe(1);
-    expect(GalleryCtrl.data[0].id).toBe('3o6Ztb8DOw7q6VNYw8');
+    expect(GalleryCtrl.data.data.length).toBe(1);
+    expect(GalleryCtrl.data.data[0].id).toBe('3o6Ztb8DOw7q6VNYw8');
   });
 
   it('should display error message if giphy data fails to load', function () {
@@ -53,18 +64,28 @@ describe('Controller: GalleryCtrl', function () {
       .respond(404);
     $httpBackend.flush();
 
-    expect(GalleryCtrl.data.length).toBe(0);
+    expect(GalleryCtrl.data).toEqual({});
     expect(GalleryCtrl.errorMessage).toBe('Error loading data');
   });
 
   it('should display current date', function () {
-    expect(new Date(GalleryCtrl.currentDate)).toBe(new Date());
+    var currentDate = new Date();
+    currentDate.setHours(0, 0, 0, 0);
+    expect(new Date(GalleryCtrl.currentDate)).toEqual(currentDate);
   });
 
-  it('should increase like count when likePhoto function is called', function () {
-    expect(GalleryCtrl.data[0].likeCount).toBeUndefined();
-    GalleryCtrl.likePhoto(0);
-    expect(GalleryCtrl.data[0].likeCount).toBe(1);
+  it('should increase like count when likeGiphy function is called', function () {
+    $httpBackend.whenGET('http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC&rating=g')
+      .respond(200, giphyServiceData);
+    $httpBackend.flush();
+
+    console.log(GalleryCtrl.data);
+
+    expect(GalleryCtrl.data.data[0].likeCount).toBeUndefined();
+    GalleryCtrl.likeGiphy(0);
+    expect(GalleryCtrl.data.data[0].likeCount).toBe(1);
+    GalleryCtrl.likeGiphy(0);
+    expect(GalleryCtrl.data.data[0].likeCount).toBe(2);
   });
 
   // TODO:
