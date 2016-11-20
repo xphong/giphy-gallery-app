@@ -57,5 +57,25 @@ describe('Gallery Page', function () {
     expect(likeCount.getText()).toBe('2');
   });
 
+  it('should increase like count of all when like all button is clicked', function () {
+    var likeAllBtn, likeContainer1, likeCount1, likeContainer2, likeCount2;
+
+    page.waitForGiphyDataToLoad();
+
+    likeAllBtn = element(by.css('[ng-click="vm.likeAll()"]'));
+
+    likeContainer1 = element.all(by.css('.gallery__images__likes')).get(0);
+    likeCount1 = likeContainer1.element(by.css('.badge'));
+    likeContainer2 = element.all(by.css('.gallery__images__likes')).get(1);
+    likeCount2 = likeContainer2.element(by.css('.badge'));
+
+    likeAllBtn.click();
+    expect(likeCount1.getText()).toBe('1');
+    expect(likeCount2.getText()).toBe('1');
+    likeAllBtn.click();
+    expect(likeCount1.getText()).toBe('2');
+    expect(likeCount2.getText()).toBe('2');
+  });
+
 
 });
