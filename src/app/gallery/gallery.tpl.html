@@ -4,11 +4,12 @@
       <h1>Trending Giphy Gallery - {{vm.currentDate}}</h1>
       <div ng-if="vm.data" class="gallery__images">
         <div class="img-thumbnail" ng-repeat="data in vm.data.data">
-          <img  ng-src="{{data.images.fixed_width.url}}">
+          <img ng-src="{{data.images.fixed_width.url}}">
           <div class="gallery__images__likes">
-            <button class="gallery__images__likes__btn btn btn-default">
+            <button ng-click="vm.likeGiphy($index)" class="gallery__images__likes__btn btn btn-default">
               &#x2764;
             </button>
+            {{data.likeCount}}
           </div>
         </div>
       </div>

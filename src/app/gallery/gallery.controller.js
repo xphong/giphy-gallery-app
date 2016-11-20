@@ -9,13 +9,13 @@
 
     function GalleryCtrl (GiphyService) {
       var vm = this;
-      vm.data = [];
+      vm.data = {};
       vm.errorMessage = '';
       vm.currentDate = getCurrentDate();
 
       init();
 
-      vm.likePhoto = likePhoto;
+      vm.likeGiphy = likeGiphy;
 
       function init () {
         GiphyService.getGiphyData()
@@ -42,14 +42,13 @@
         return year + "/" + month + "/" + day;
       }
 
-      function likePhoto () {
-        // TODO:
-        // You'll need to add this method for liking not through GIPHY
-        // but just locally on our site (client, don't worry about the server)
-        // or, maybe you'll have a like all? or, dislike - leave that up to you
-
-        // You'll also want to ideally create a test for each function you create
-        // and test that the scope variable is correct for each or is as expected
+      function likeGiphy (index) {
+        if (!vm.data.data[index].likeCount) {
+          vm.data.data[index].likeCount = 0;
+          vm.data.data[index].likeCount += 1;
+        } else {
+          vm.data.data[index].likeCount += 1;
+        }
       }
     }
 
