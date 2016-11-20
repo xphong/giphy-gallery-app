@@ -644,7 +644,7 @@ module.exports = function(grunt) {
     // The default task is to build and compile.
     grunt.registerTask('default', [ 'build', 'compile' ]);
 
-    grunt.registerTask('test', [ 'jshint:test', 'karmaconfig', 'karma:continuous', 'karma:unit', 'express']);
+    grunt.registerTask('test', [ 'build', 'jshint:test', 'karmaconfig', 'karma:continuous', 'karma:unit', 'express']);
 
     // The 'build' task gets your app ready to run for development and testing.
     grunt.registerTask('build', [
