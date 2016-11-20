@@ -38,3 +38,23 @@ npm install
 `grunt teste2e`
 * For unit tests:
 `grunt test`
+
+## Features
+
+* Display giphy data
+* Like button
+* Like all button
+* Unit tests
+* E2E tests (in `feature/e2e branch`)
+
+## Style
+
+* [John Papa Angular 1 Style Guide](https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md)
+* [BEM Naming](http://getbem.com/naming/)
+
+## Technologies
+
+* Angular 1.5.8
+* Bootstrap 3.3.7
+* Grunt
+* Karma/Jasmine/Protractor
