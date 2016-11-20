@@ -31,6 +31,7 @@
     "protractor": "2.1.0"
   },
   "scripts": {
-    "webdriver": "node node_modules/protractor/bin/webdriver-manager update"
+    "webdriver": "node node_modules/protractor/bin/webdriver-manager update",
+    "grunt-webdriver": "node node_modules/grunt-protractor-runner/scripts/webdriver-manager-update"
   }
 }

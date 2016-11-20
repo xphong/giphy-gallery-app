@@ -34,6 +34,7 @@ npm install
 
 * Install the drivers:
 `node_modules/protractor/bin/webdriver-manager update`
+`node_modules/grunt-protractor-runner/scripts/webdriver-manager-update`
 * Run the server via terminal:
 `grunt watch`
 * Run the e2e tests:
