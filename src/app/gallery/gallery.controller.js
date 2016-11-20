@@ -35,9 +35,9 @@
 
       function getCurrentDate () {
         var dateObj = new Date();
-        var month = dateObj.getUTCMonth() + 1;
-        var day = dateObj.getUTCDate();
-        var year = dateObj.getUTCFullYear();
+        var month = dateObj.getMonth() + 1;
+        var day = dateObj.getDate();
+        var year = dateObj.getFullYear();
 
         return year + "/" + month + "/" + day;
       }

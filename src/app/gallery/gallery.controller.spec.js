@@ -58,7 +58,7 @@ describe('Controller: GalleryCtrl', function () {
   });
 
   it('should display current date', function () {
-    expect(GalleryCtrl.currentDate).toBe('2016/11/19');
+    expect(new Date(GalleryCtrl.currentDate)).toBe(new Date());
   });
 
   it('should increase like count when likePhoto function is called', function () {
