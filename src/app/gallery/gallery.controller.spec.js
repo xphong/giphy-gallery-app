@@ -88,7 +88,7 @@ describe('Controller: GalleryCtrl', function () {
 
   it('should format date string to YYYY/MM/DD', function () {
     expect(GalleryCtrl.formatDateString('2015-03-21 10:08:28')).toEqual('2015/3/21');
-    expect(GalleryCtrl.formatDateString('2016-10-21 15:25:58')).toEqual('2015/10/21');
+    expect(GalleryCtrl.formatDateString('2016-10-21 15:25:58')).toEqual('2016/10/21');
   });
 
 });

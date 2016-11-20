@@ -12,14 +12,13 @@
 
       vm.likeGiphy = likeGiphy;
       vm.formatDateString = formatDateString;
-      
       vm.data = {};
       vm.errorMessage = '';
       vm.currentDate = formatDate(new Date());
 
-      init();
+      activate();
 
-      function init () {
+      function activate () {
         GiphyService.getGiphyData()
           .then(setGalleryData, handleGalleryDataError);
       }
