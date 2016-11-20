@@ -1,7 +1,7 @@
 # Giphy gallery app
 
 A simplified version of the ngBoilerplate angular project template.
-(https://github.com/ngbp/ngbp)[https://github.com/ngbp/ngbp]
+[https://github.com/ngbp/ngbp](https://github.com/ngbp/ngbp)
 
 ***
 
