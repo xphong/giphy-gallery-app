@@ -9,6 +9,36 @@
   .img-thumbnail {
     margin: 20px 10px;
   }
+
+  .gallery__images__container {
+    position: relative;
+    cursor: pointer;
+
+    &:hover .gallery__images__container--hover  {
+      opacity: 1;
+    }
+  }
+
+  .gallery__images__container--hover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 500ms;
+  }
+
+  .gallery__images__container--hover__text {
+    width: 100%;
+    margin: 0 0 0.75em 0;
+  }
 }
 
 .gallery__images__likes {
