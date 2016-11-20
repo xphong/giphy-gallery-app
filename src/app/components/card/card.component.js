@@ -21,12 +21,7 @@
       vm.formatDateString = formatDateString;
 
       function likeGiphy () {
-        if (!vm.data.likeCount) {
-          vm.data.likeCount = 0;
-          vm.data.likeCount += 1;
-        } else {
-          vm.data.likeCount += 1;
-        }
+        vm.data.likeCount = vm.data.likeCount + 1 || 1;
       }
 
       function formatDateString(dateString) {
