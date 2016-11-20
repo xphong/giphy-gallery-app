@@ -11,6 +11,11 @@ A simplified version of the ngBoilerplate angular project template.
 
 ### Install required dependencies
 ```
+npm install bower -g
+npm install yarn -g
+```
+
+```
 bower install
 yarn
 ```
