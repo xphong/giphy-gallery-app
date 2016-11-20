@@ -77,5 +77,4 @@ describe('Gallery Page', function () {
     expect(likeCount2.getText()).toBe('2');
   });
 
-
 });
