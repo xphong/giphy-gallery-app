@@ -5,22 +5,7 @@
         <h2>Trending Giphy Gallery - {{vm.currentDate}}</h2>
       </div>
       <div ng-if="vm.data" class="gallery__images">
-        <div class="img-thumbnail" ng-repeat="data in vm.data.data">
-          <div class="gallery__images__container">
-            <a target="_blank" ng-href="{{data.bitly_url}}">
-              <img ng-src="{{data.images.fixed_width.url}}">
-              <div class="gallery__images__container--hover">
-                <div class="gallery__images__container--hover__text">{{data.username}}</div>
-                <div class="gallery__images__container--hover__text">{{vm.formatDateString(data.import_datetime)}}</div>
-              </div>
-            </a>
-          </div>
-          <div class="gallery__images__likes">
-            <button ng-click="vm.likeGiphy($index)" class="gallery__images__likes__btn btn btn-default">
-              &#x2764; <span class="badge">{{data.likeCount}}</span>
-            </button>
-          </div>
-        </div>
+        <gg-card class="img-thumbnail" ng-repeat="data in vm.data.data" data="data"></gg-card>
       </div>
       <div ng-if="vm.errorMessage" class="alert alert-danger"> 
         {{vm.errorMessage}}
@@ -28,6 +13,3 @@
     </div>
   </div>
 </div>
-
-
-<gg-card></gg-card>
