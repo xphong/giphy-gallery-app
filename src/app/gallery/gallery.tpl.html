@@ -11,6 +11,7 @@
               <img ng-src="{{data.images.fixed_width.url}}">
               <div class="gallery__images__container--hover">
                 <div class="gallery__images__container--hover__text">{{data.username}}</div>
+                <div class="gallery__images__container--hover__text">{{vm.formatDateString(data.import_datetime)}}</div>
               </div>
             </a>
           </div>
