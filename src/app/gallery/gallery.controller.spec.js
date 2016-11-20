@@ -74,21 +74,4 @@ describe('Controller: GalleryCtrl', function () {
     expect(new Date(GalleryCtrl.currentDate)).toEqual(currentDate);
   });
 
-  it('should increase like count when likeGiphy function is called', function () {
-    $httpBackend.whenGET('http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC&rating=g')
-      .respond(200, giphyServiceData);
-    $httpBackend.flush();
-
-    expect(GalleryCtrl.data.data[0].likeCount).toBeUndefined();
-    GalleryCtrl.likeGiphy(0);
-    expect(GalleryCtrl.data.data[0].likeCount).toBe(1);
-    GalleryCtrl.likeGiphy(0);
-    expect(GalleryCtrl.data.data[0].likeCount).toBe(2);
-  });
-
-  it('should format date string to YYYY/MM/DD', function () {
-    expect(GalleryCtrl.formatDateString('2015-03-21 10:08:28')).toEqual('2015/3/21');
-    expect(GalleryCtrl.formatDateString('2016-10-21 15:25:58')).toEqual('2016/10/21');
-  });
-
 });
