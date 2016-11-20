@@ -8,7 +8,8 @@ describe('Service: GiphyService', function () {
       giphyService404Error,
       giphyService403Error;
 
-  giphyServiceData = [{
+  giphyServiceData = {
+    data: [{
     'type': 'gif',
     'id': '3o6Ztb8DOw7q6VNYw8',
     'slug': 'sharon-jones-3o6Ztb8DOw7q6VNYw8',
@@ -33,7 +34,17 @@ describe('Service: GiphyService', function () {
         'size': '1325251'
       }
      }
-   }];
+   }],
+   meta: {
+     'status': 200,
+     'msg': 'OK',
+     'response_id': '5830d3d914592aa7a31a1ff5'
+   },
+   pagination: {
+     'count': 25,
+     'offset': 0
+   }
+  };
 
    giphyService404Error = {
      'data': [],

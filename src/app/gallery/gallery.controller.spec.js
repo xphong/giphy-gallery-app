@@ -88,8 +88,4 @@ describe('Controller: GalleryCtrl', function () {
     expect(GalleryCtrl.data.data[0].likeCount).toBe(2);
   });
 
-  // TODO:
-  // You will have to create some more tests here with how you should be interacting
-  // with your scope variable as you create your functions in your
-  // GalleryCtrl
 });
