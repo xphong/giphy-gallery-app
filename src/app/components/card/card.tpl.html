@@ -1,3 +1,14 @@
-<div>
-  CARD
+<div class="gallery__images__container">
+  <a target="_blank" ng-href="{{vm.data.bitly_url}}">
+    <img ng-src="{{vm.data.images.fixed_width.url}}">
+    <div class="gallery__images__container--hover">
+      <div class="gallery__images__container--hover__text">{{vm.data.username}}</div>
+      <div class="gallery__images__container--hover__text">{{vm.formatDateString(vm.data.import_datetime)}}</div>
+    </div>
+  </a>
+</div>
+<div class="gallery__images__likes">
+  <button ng-click="vm.likeGiphy()" class="gallery__images__likes__btn btn btn-default">
+    &#x2764; <span class="badge">{{vm.data.likeCount}}</span>
+  </button>
 </div>

@@ -10,8 +10,6 @@
     function GalleryCtrl (GiphyService) {
       var vm = this;
 
-      vm.likeGiphy = likeGiphy;
-      vm.formatDateString = formatDateString;
       vm.data = {};
       vm.errorMessage = '';
       vm.currentDate = formatDate(new Date());
@@ -32,19 +30,6 @@
       function handleGalleryDataError (error) {
         // Hard coded because of CORS
         vm.errorMessage = 'Error loading data';
-      }
-
-      function likeGiphy (index) {
-        if (!vm.data.data[index].likeCount) {
-          vm.data.data[index].likeCount = 0;
-          vm.data.data[index].likeCount += 1;
-        } else {
-          vm.data.data[index].likeCount += 1;
-        }
-      }
-
-      function formatDateString(dateString) {
-        return formatDate(new Date(dateString));
       }
 
       function formatDate (date) {
