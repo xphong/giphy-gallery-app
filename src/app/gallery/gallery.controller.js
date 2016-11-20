@@ -5,14 +5,14 @@
       .module('giphyGalleryApp')
       .controller('GalleryCtrl', GalleryCtrl);
 
-    GalleryCtrl.$inject = ['GiphyService'];
+    GalleryCtrl.$inject = ['GiphyService', 'UtilsService'];
 
-    function GalleryCtrl (GiphyService) {
+    function GalleryCtrl (GiphyService, UtilsService) {
       var vm = this;
 
       vm.data = {};
       vm.errorMessage = '';
-      vm.currentDate = formatDate(new Date());
+      vm.currentDate = UtilsService.formatDate(new Date());
 
       activate();
 
@@ -30,14 +30,6 @@
       function handleGalleryDataError (error) {
         // Hard coded because of CORS
         vm.errorMessage = 'Error loading data';
-      }
-
-      function formatDate (date) {
-        var month = date.getMonth() + 1;
-        var day = date.getDate();
-        var year = date.getFullYear();
-
-        return year + "/" + month + "/" + day;
       }
     }
 

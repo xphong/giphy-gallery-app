@@ -12,9 +12,9 @@
         controllerAs: 'vm'
       });
 
-    CardComponentCtrl.$inject = [];
+    CardComponentCtrl.$inject = ['UtilsService'];
 
-    function CardComponentCtrl () {
+    function CardComponentCtrl (UtilsService) {
       var vm = this;
 
       vm.likeGiphy = likeGiphy;
@@ -30,16 +30,8 @@
       }
 
       function formatDateString(dateString) {
-        return formatDate(new Date(dateString));
+        return UtilsService.formatDate(new Date(dateString));
       }
-
-      function formatDate (date) {
-        var month = date.getMonth() + 1;
-        var day = date.getDate();
-        var year = date.getFullYear();
-
-        return year + "/" + month + "/" + day;
-      }  
     }
 
 })(angular);
