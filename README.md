@@ -54,7 +54,7 @@ npm install
 * Display giphy data
 * Like button
 * Like all button
-* Unit tests
+* Unit tests with Coverage
 * E2E tests (in `feature/e2e branch`)
 * Travis CI
 
