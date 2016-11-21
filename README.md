@@ -1,4 +1,4 @@
-# Giphy gallery app
+# Giphy gallery app - [http://phonghuynh.ca/giphy](http://phonghuynh.ca/giphy)
 
 [![Build Status](https://travis-ci.org/xphong/giphy-gallery-app.svg?branch=master)](https://travis-ci.org/xphong/giphy-gallery-app)
 
@@ -10,6 +10,11 @@ A simplified version of the ngBoilerplate angular project template.
 ## Quick Start
 
 ### Install required dependencies
+```
+npm install bower -g
+npm install yarn -g
+```
+
 ```
 bower install
 yarn
