@@ -13,5 +13,6 @@ before_script:
   - node_modules/protractor/bin/webdriver-manager update
   - node_modules/grunt-protractor-runner/scripts/webdriver-manager-update
   - grunt watch &
+  - sleep 5
 script:
   - grunt teste2e

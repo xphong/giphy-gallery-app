@@ -12,7 +12,7 @@ protractor.pages.MainPage = function () {
 
     this.getPage = function (page) {
         browser.ignoreSynchronization = true;
-        browser.get('http://localhost:9000/#' + page);
+        browser.get(browser.baseUrl + '/#' + page);
         browser.waitForAngular();
     };
 

@@ -1,6 +1,8 @@
 var binaryPath = '';
 
 exports.config = {
+  baseUrl: 'http://localhost:' + (process.env.PORT || '9000'),
+
   capabilities: {
     'browserName': 'phantomjs'
   },
