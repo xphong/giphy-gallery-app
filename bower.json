@@ -4,9 +4,9 @@
   "_comment": "Any dependencies added here require a manual edit to vendor_files in /Gruntfile.js and (??? verify the following) /build/karma-unit.js (e.g 'vendor/angular-resource/angular-resource.js')",
   "dependencies": {
     "angular": "1.5.8",
+    "angular-loading-bar": "^0.9.0",
     "angular-mocks": "1.5.8",
-    "bootstrap": "~3.3",
     "angular-ui-router": "^0.3.2",
-    "angular-loading-bar": "^0.9.0"
+    "bootstrap": "~3.3"
   }
 }

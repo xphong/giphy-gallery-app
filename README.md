@@ -39,6 +39,9 @@ npm install
 
 ### Testing
 
+* Install the drivers:
+`node_modules/protractor/bin/webdriver-manager update`
+`node_modules/grunt-protractor-runner/scripts/webdriver-manager-update`
 * Run the server via terminal:
 `grunt watch`
 * Run the e2e tests:
@@ -51,8 +54,8 @@ npm install
 * Display giphy data
 * Like button
 * Like all button
-* Unit tests
-* E2E tests (in `feature/e2e branch`)
+* Unit tests with Coverage
+* E2E tests
 * Travis CI
 
 ## Style

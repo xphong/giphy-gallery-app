@@ -9,12 +9,22 @@ module.exports = function ( karma ) {
             'src/**/*.js'
     ],
     exclude: [
-      'src/assets/**/*.js'
+      'src/assets/**/*.js',
+      'src/**/*.protractor.spec.js'
     ],
     frameworks: [ 'jasmine' ],
-    plugins: [ 'karma-jasmine', 'karma-firefox-launcher', 'karma-chrome-launcher', 'karma-phantomjs-launcher' ],
+    plugins: [ 'karma-jasmine', 'karma-firefox-launcher', 'karma-chrome-launcher', 'karma-phantomjs-launcher', 'karma-coverage' ],
 
-    reporters: 'dots',
+    reporters: [ 'progress', 'coverage' ],
+
+    preprocessors: {
+        'src/**/!(*spec).js': ['coverage']
+    },
+
+    coverageReporter: {
+        type: 'lcov',
+        dir: 'coverage'
+    },
 
     port: 9018,
     runnerPort: 9100,

@@ -20,12 +20,19 @@
     "grunt-karma": "0.8.2",
     "grunt-ng-annotate": "0.3.2",
     "grunt-parallel": "0.5.1",
+    "grunt-protractor-runner": "2.0.0",
     "karma": "0.12.31",
     "karma-chrome-launcher": "0.1.3",
     "karma-coffee-preprocessor": "0.2.1",
+    "karma-coverage": "1.1.1",
     "karma-firefox-launcher": "0.1.3",
     "karma-jasmine": "0.1.5",
     "karma-phantomjs-launcher": "0.1.3",
-    "lodash": "2.4.1"
+    "lodash": "2.4.1",
+    "protractor": "2.1.0"
+  },
+  "scripts": {
+    "webdriver": "node node_modules/protractor/bin/webdriver-manager update",
+    "grunt-webdriver": "node node_modules/grunt-protractor-runner/scripts/webdriver-manager-update"
   }
 }
