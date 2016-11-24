@@ -55,7 +55,7 @@ npm install
 * Like button
 * Like all button
 * Unit tests with Coverage
-* E2E tests (in `feature/e2e branch`)
+* E2E tests
 * Travis CI
 
 ## Style
