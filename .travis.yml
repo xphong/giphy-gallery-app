@@ -11,5 +11,8 @@ before_script:
   - npm install bower -g
   - npm install
   - bower install
+  - node_modules/protractor/bin/webdriver-manager update
+  - node_modules/grunt-protractor-runner/scripts/webdriver-manager-update
 script:
-  - grunt test
+  - grunt watch
+  - grunt teste2e
