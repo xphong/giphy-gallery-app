@@ -13,6 +13,6 @@ before_script:
   - bower install
   - node_modules/protractor/bin/webdriver-manager update
   - node_modules/grunt-protractor-runner/scripts/webdriver-manager-update
-script:
   - grunt watch
+script:
   - grunt teste2e
