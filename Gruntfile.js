@@ -637,7 +637,7 @@ module.exports = function(grunt) {
     // 'delta') and then add a new task called 'watch' that does a clean build
     // before watching for changes.
     grunt.renameTask('watch', 'delta');
-    grunt.registerTask('watch', [ 'build', 'karma:unit', 'express', 'delta' ]);
+    grunt.registerTask('watch', [ 'build', 'karmaconfig', 'karma:continuous', 'karma:unit', 'express', 'delta' ]);
     // watchmock is just like watch, but includes testing resources for using $httpBackend
     grunt.registerTask('watchmock', [ 'buildmock', 'karma:unit', 'express', 'delta' ]);
 
@@ -650,8 +650,7 @@ module.exports = function(grunt) {
     grunt.registerTask('build', [
         'clean:all', 'html2js', 'jshint', 'coffeelint', 'coffee', 'less:build',
         'concat:build_css', 'copy:build_app_assets', 'copy:build_vendor_assets',
-        'copy:build_appjs', 'copy:build_vendorjs', 'copy:build_vendorcss', 'ngAnnotate:build', 'index:build', 'karmaconfig',
-        'karma:continuous'
+        'copy:build_appjs', 'copy:build_vendorjs', 'copy:build_vendorcss', 'ngAnnotate:build', 'index:build'
     ]);
 
     // just like build, but includes testing resources for using $httpBackend and switches to mock application in index.html
