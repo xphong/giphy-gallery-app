@@ -12,7 +12,7 @@ protractor.pages.MainPage = function () {
 
     this.getPage = function (page) {
         browser.ignoreSynchronization = true;
-        browser.get(browser.baseUrl + '/#' + page);
+        browser.get(browser.baseUrl + '/#/' + page);
         browser.waitForAngular();
     };
 
@@ -32,6 +32,6 @@ protractor.pages.MainPage = function () {
     this.waitForGiphyDataToLoad = function () {
       browser.wait(function () {
         return browser.driver.isElementPresent(by.css('.gallery__images__container'));
-      }, 5000);
+      }, 10000);
     }
 };
